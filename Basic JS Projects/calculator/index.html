@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .CaculatorContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 30rem;
+            background-color: grey;
+            padding:2rem;
+            border-radius: 1rem;
+
+        }
+        .screen-container{
+            width: 90%;
+        }
+        .input-container{
+            display:flex ;
+        }
+        .screen{
+            width:90%;
+            border-radius: 1rem;
+            padding:1rem;
+            border: none;
+            text-align: right;
+            font-weight: 700;
+            font-size: 1rem;
+            max-height:4rem;
+            max-width: 90%;
+        }
+        .side-container{
+            display: flex;
+            flex-direction: column;
+        }
+        div>button{
+            border: none;
+            color: black;
+            margin:1rem;
+            width: 4rem;
+            height: 3rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        div>button:hover{
+            background-color: lightgrey;
+        }
+    </style>
+    <script defer>
+        let num1,num2,opr;
+
+        const handleOnclick=(e)=>{
+            const screen=document.getElementById("screen");
+            if(screen.value==="0")
+                screen.value=e.target.value;
+            else
+                screen.value+=(e.target.value);
+        };
+        const handleOnclear=()=>{
+            const screen=document.getElementById("screen");
+            screen.value="0";
+        }
+        const operationHandleOnclick=(e)=>{
+            const screen=document.getElementById("screen");
+            if(screen.value==="0")
+                alert("Enter something")
+            else{
+                let c=screen.value.slice(-1);
+                if(c==="+" || c==="-" || c==="x" || c==="/" )
+                    alert("can't have 2 concurrent operators")
+                else
+                    screen.value+=(e.target.value);
+            }
+        }
+        const handleOnclickdel=()=>{
+            const screen=document.getElementById("screen");
+            if(screen.value!="0")
+            screen.value=(screen.value.substring(0,screen.value.length-1));
+        if (screen.value.length===0)
+        screen.value="0";
+        }
+        const handleEvalOnclick=()=>{
+            const screen=document.getElementById("screen");
+            screen.value+="\n"+eval(screen.value);
+        }
+    </script>
+</head>
+<body>
+    <div class="CaculatorContainer">
+        <h2>Calculator</h2>
+        <div class="screen-container">
+            <textarea class="screen" id="screen" value="0"></textarea>
+        </div>
+        <div class="input-container">
+            <div class="button-container">
+                <div>
+                    <button value="C" onClick="handleOnclear(event)">C</button>
+                    <button value="+/-" onClick="handleOnclick(event)">+/-</button>
+                    <button value="/" onClick="operationHandleOnclick(event)">/</button>
+                </div>
+                <div>
+                    <button value="9" onClick="handleOnclick(event)">9</button>
+                    <button value="8" onClick="handleOnclick(event)">8</button>
+                    <button value="7" onClick="handleOnclick(event)">7</button>
+                </div>
+                <div>
+                    <button value="6" onClick="handleOnclick(event)">6</button>
+                    <button value="5" onClick="handleOnclick(event)">5</button>
+                    <button value="4" onClick="handleOnclick(event)">4</button>
+                </div>
+                <div>
+                    <button value="3" onClick="handleOnclick(event)">3</button>
+                    <button value="2" onClick="handleOnclick(event)">2</button>
+                    <button value="1" onClick="handleOnclick(event)">1</button>
+                </div>
+                <div>
+                    <button value="." onClick="handleOnclick(event)">.</button>
+                    <button value="0" onClick="handleOnclick(event)">0</button>
+                    <button value="=" onClick="handleEvalOnclick(event)">=</button>
+                </div>
+            </div>
+
+            <div class="side-container">
+                <button value="delete" onClick="handleOnclickdel(event)">del</button>
+                <button value="-" onClick="operationHandleOnclick(event)">-</button>
+                <button value="+" onClick="operationHandleOnclick(event)">+</button>
+                <button value="*" onClick="operationHandleOnclick(event)">x</button>
+                <button value="%" onClick="operationHandleOnclick(event)">mod</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
