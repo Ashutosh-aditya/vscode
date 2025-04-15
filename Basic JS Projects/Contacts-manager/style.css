@@ -1,0 +1,45 @@
+.main-wrapper{
+    
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 40%;
+    top: 20%;
+    min-width: 20rem; /* Full width */
+    min-height: 20rem;
+    height: fit-content; /* Full height */
+    width: fit-content;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(100,100,100,0.4); /* Black w/ opacity */
+    padding: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 2rem;
+}
+
+.close{
+    cursor: pointer;
+    padding:1rem;
+}
+
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.addContact{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.addContactTab,.viewAllContacts,.searchContact,.editContact{
+    display: none;
+}
+.searchContact{
+    flex-direction: column;
+}
+.close{
+    display: flex;
+    justify-content: flex-end;
+}

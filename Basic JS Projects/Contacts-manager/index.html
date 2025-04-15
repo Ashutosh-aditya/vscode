@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script src="./script.js" defer></script>
+    <div class="main-wrapper">
+        <h2>Contact Management System</h2>
+        <div>
+            <button onclick="addContact()">Add Contact</button>
+            <button onclick="viewList()">View All contacts</button>
+            <button onclick="editAndModifyContacts()">Edit or Delete Contact</button>
+            <button onclick="searchContactTab()">Search Contact</button>
+        </div>
+
+        <div class="modal" id="modal">
+
+            <div class="addContactTab" id="addContactTab">
+                <div class="modalHeader">
+                    <h3>Add Contact</h3>
+                    <div onclick="closeModal()" class="close">x</div>
+                </div>
+                <div class="addContact">
+                    <label>Name <input type="text" placeholder="Enter Name" id="name"></label><br>
+                    <label>Phone <input type="number" placeholder="Enter Phone Number" id="phone"></label><br>
+                    <label>Email <input type="email" placeholder="Enter Email" id="email"></label><br>
+                    <label>Address <textarea name="textarea1" id="address" height="2rem" width="4rem" placeholder="Enter Address"></textarea></label><br>
+                    <button onclick="SubmitData()">Submit</button>
+                </div>
+            </div>
+
+            <div class="viewAllContacts" id="viewAllContacts"></div>
+
+            <div class="searchContact" id="searchContact">
+                <div>
+                    <div class="modalHeader">
+                    <h3>Search Contact</h3>
+                    <div onclick="closeModal()" class="close">x</div>
+                </div>
+                    <input type="text" placeholder="Enter Name" id="SearchKey">
+                    <button onclick="searchContacts()">Search</button>
+                </div>
+                <div class="searchResult" id="searchResult"></div>
+            </div>
+
+            <div class="editContactTab" id="editContactTab">
+                <div class="modalHeader">
+                    <h3>Edit or delete Contact</h3>
+                    <div onclick="closeModal()" class="close">x</div>
+                </div>
+                <div>
+                    <div id="editContactTabResult"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
